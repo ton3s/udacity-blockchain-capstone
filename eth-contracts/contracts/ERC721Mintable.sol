@@ -11,13 +11,14 @@ contract Ownable {
     //  1) create a private '_owner' variable of type address with a public getter function
     address private _owner;
 
-    function getOwner() public returns (address) {
+    function owner() public view returns (address) {
         return _owner;
     }
 
     //  2) create an internal constructor that sets the _owner var to the creater of the contract 
     constructor() internal {
         _owner = msg.sender;
+        emit TransferOwnership(address(0), _owner);
     }
 
     //  3) create an 'onlyOwner' modifier that throws if called by any account other than the owner.
