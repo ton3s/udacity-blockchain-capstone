@@ -1,7 +1,12 @@
 {
 	"localhost": {
 		"url": "http://localhost:8545",
-		"contractAddress": "0x5E83CE41e69B106a14B66bea698bb62b3B461aC5",
+		"contractAddress": "0x0DAe39a5Eba14c2AddE1CfFc4557B640c342C88D",
+		"gas": 6721975
+	},
+	"rinkeby": {
+		"url": "https://rinkeby.infura.io/v3/fcf480adc3974176be0af60ef3a19db5",
+		"contractAddress": "0xf6FC7Dd935F5c03a2D82c846Df112B6705E7AA50",
 		"gas": 6721975
 	}
 }

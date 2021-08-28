@@ -2,6 +2,20 @@
 
 Blockchain capstone project consisting of building a decentralized housing product for Udacity's Blockchain course.
 
+## Real Estate NFT Collection and Transactions
+
+The collection of the real estate NFT's on OpenSea:
+- https://testnets.opensea.io/collection/udacity-blockchain-capstone
+
+The transactions for the NFT's being minted:
+- https://rinkeby.etherscan.io/address/0x85c2a38b0251fbe7e5bdbb43f34212c0e32e9d3b
+
+NFTS were purchased with this account:
+- https://testnets.opensea.io/0x54e7c25c23987e3a51d7e43aa1f477849b04c156
+
+The transactions for the NFT's being purchased:
+- https://rinkeby.etherscan.io/address/0x54E7C25C23987e3a51d7e43aA1f477849b04c156
+
 ### Libraries
 
 ```
@@ -99,6 +113,7 @@ Contract: SquareVerifier
 
 10 passing (5s)
 ```
+
 
 # Project Resources
 

@@ -1,22 +1,26 @@
 const SolnSquareVerifier = require('./contracts/SolnSquareVerifier.json')
 const Config = require('./contracts/config.json')
 const Web3 = require('web3')
+const HDWalletProvider = require('truffle-hdwallet-provider')
+require('dotenv').config()
 
 // Setup Web3
-let config = Config['localhost']
-let web3 = new Web3(
-	new Web3.providers.WebsocketProvider(config.url.replace('http', 'ws'))
+const config = Config['rinkeby']
+const provider = new HDWalletProvider(
+  [process.env.BLOCKCHAIN_PRIVATE_KEY],
+  `https://rinkeby.infura.io/v3/${process.env.INFURA_ID}`
 )
+const web3 = new Web3(provider)
 
 // Smart contract
-let solnSquareVerifier = new web3.eth.Contract(
+const solnSquareVerifier = new web3.eth.Contract(
 	SolnSquareVerifier.abi,
 	config.contractAddress
 )
 
 async function mintNFTS(proof, tokenId) {
   // Get accounts
-	const accounts = await web3.eth.personal.getAccounts()
+	const accounts = await web3.eth.getAccounts()
 	web3.eth.defaultAccount = accounts[0]
 
   // Mint NFT
@@ -42,7 +46,7 @@ function logEvent(error, event) {
   console.log(event.returnValues)
 }
 
-setupWeb3Listeners()
+// setupWeb3Listeners()
 
 // Mint 10 NFTS
 for (let i = 1; i <= 10; i++) {
