@@ -1,6 +1,28 @@
 # Udacity Blockchain Capstone
 
-The capstone will build upon the knowledge you have gained in the course in order to build a decentralized housing product. 
+Blockchain capstone project consisting of building a decentralized housing product for Udacity's Blockchain course.
+
+## Prerequisites
+
+- Ganache is setup with at least 10 accounts
+
+```
+ganache-cli --deterministic 100000000 --accounts 10 --networkId 5777 --defaultBalanceEther 1000 --allowUnlimitedContractSize
+```
+
+## Tests
+
+- Run the tests for the smart contract
+
+```
+cd eth-contracts
+truffle test
+```
+
+- Results of the tests
+
+```
+```
 
 # Project Resources
 
