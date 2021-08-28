@@ -44,6 +44,10 @@ v1.2.1
 
 ### Contract Details
 
+- All contract ABI's are available under `eth-contract/build/contracts`
+
+- Contract deployment details are as follows:
+
 ```
 Deploying 'Verifier'
 --------------------
@@ -113,7 +117,6 @@ Contract: SquareVerifier
 
 10 passing (5s)
 ```
-
 
 # Project Resources
 

@@ -1,7 +1,7 @@
 {
 	"localhost": {
 		"url": "http://localhost:8545",
-		"contractAddress": "0x0DAe39a5Eba14c2AddE1CfFc4557B640c342C88D",
+		"contractAddress": "0x53d73eaa2b77197Ba6a2069D0B01c72c3D66ea49",
 		"gas": 6721975
 	},
 	"rinkeby": {
