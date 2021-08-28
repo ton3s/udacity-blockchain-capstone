@@ -1,0 +1,7 @@
+{
+	"localhost": {
+		"url": "http://localhost:8545",
+		"contractAddress": "0x5E83CE41e69B106a14B66bea698bb62b3B461aC5",
+		"gas": 6721975
+	}
+}

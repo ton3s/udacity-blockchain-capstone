@@ -1,0 +1,52 @@
+const SolnSquareVerifier = require('./contracts/SolnSquareVerifier.json')
+const Config = require('./contracts/config.json')
+const Web3 = require('web3')
+
+// Setup Web3
+let config = Config['localhost']
+let web3 = new Web3(
+	new Web3.providers.WebsocketProvider(config.url.replace('http', 'ws'))
+)
+
+// Smart contract
+let solnSquareVerifier = new web3.eth.Contract(
+	SolnSquareVerifier.abi,
+	config.contractAddress
+)
+
+async function mintNFTS(proof, tokenId) {
+  // Get accounts
+	const accounts = await web3.eth.personal.getAccounts()
+	web3.eth.defaultAccount = accounts[0]
+
+  // Mint NFT
+  await solnSquareVerifier.methods
+    .mintNFT(accounts[0], tokenId, proof.proof, proof.inputs)
+    .send({ from: accounts[0], gas: config.gas })
+    .catch(err => console.log(err))
+}
+
+function setupWeb3Listeners() {
+	// SolutionAdded
+	solnSquareVerifier.events.SolutionAdded({}, (error, event) =>
+		logEvent(error, event)
+	)
+  solnSquareVerifier.events.Transfer({}, (error, event) =>
+  logEvent(error, event)
+)
+}
+
+function logEvent(error, event) {
+	if (error) console.log(error)
+	console.log(event.event)
+  console.log(event.returnValues)
+}
+
+setupWeb3Listeners()
+
+// Mint 10 NFTS
+for (let i = 1; i <= 10; i++) {
+  const proof = require(`../zokrates/code/square/proofs/proof_${i}.json`)
+  mintNFTS(proof, i)
+}
+
